@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifySignature } from "../src/utils";
-import { repositoryHandler } from "../src/handlers/repository";
+import { verifySignature } from "../src/utils.js";
+import { repositoryHandler } from "../src/handlers/repository.js";
 
 /**
  * GitHub Webhook のエントリポイント

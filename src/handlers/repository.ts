@@ -1,4 +1,4 @@
-import { getOctokit } from "../github";
+import { getOctokit } from "../github.js";
 import dotenv from "dotenv";
 
 dotenv.config();

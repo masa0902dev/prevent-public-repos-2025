@@ -1,4 +1,4 @@
-import { Octokit } from "@octokit/core";
+import { Octokit } from "@octokit/rest";
 import { createAppAuth } from "@octokit/auth-app";
 import { Buffer } from "buffer";
 import dotenv from "dotenv";

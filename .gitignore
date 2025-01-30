@@ -79,6 +79,7 @@ web_modules/
 .env.production.local
 .env.local
 prevent-public-repos-2025.2025-01-30.private-key.pem
+private-key.b64
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

@@ -8,14 +8,17 @@ export function validateRequest(req: VercelRequest, res: VercelResponse): boolea
     return false;
   }
 
-  if (!req.body.repository || !req.body.action || !req.body.installation) {
+  if (!req.body.actions) {
     res.status(400).json({ error: "Invalid payload structure" });
+    return false;
+  } else if (!targetActions.includes(req.body.action)) {
+    // Skip irrelevant actions
+    res.status(204).end();
     return false;
   }
 
-  if (!targetActions.includes(req.body.action)) {
-    // Skip irrelevant actions
-    res.status(204).end();
+  if (!req.body.repository || !req.body.action || !req.body.installation) {
+    res.status(400).json({ error: "Invalid payload structure" });
     return false;
   }
 

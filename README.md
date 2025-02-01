@@ -1,5 +1,10 @@
 # prevent-public-repos-2025
 
+⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️  
+Applying for Github App.  
+I will update the README as soon as I hear from Github!  
+⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️
+
 [English](README.md) | [日本語](README.ja.md)
 
 This is a GitHub App that monitors the creation of public repositories and changes from private to public within a GitHub Organization.  

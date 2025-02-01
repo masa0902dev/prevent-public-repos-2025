@@ -1,5 +1,10 @@
 # prevent-public-repos-2025
 
+⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️  
+Github App の申請中です。  
+Github から連絡が届き次第、README を更新します!  
+⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️
+
 [English](README.md) | [日本語](README.ja.md)
 
 Github Organization での Public レポジトリの作成・Private から Public への変更を監視する Github App です。  

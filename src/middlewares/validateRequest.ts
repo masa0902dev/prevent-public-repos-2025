@@ -8,7 +8,7 @@ export function validateRequest(req: VercelRequest, res: VercelResponse): boolea
     return false;
   }
 
-  if (!req.body.actions) {
+  if (!req.body.action) {
     res.status(400).json({ error: "Invalid payload structure" });
     return false;
   } else if (!targetActions.includes(req.body.action)) {

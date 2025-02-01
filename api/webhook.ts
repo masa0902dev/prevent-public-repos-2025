@@ -3,7 +3,7 @@ import { verifySignature } from "../src/utils.js";
 import { repositoryHandler } from "../src/handlers/repository.js";
 
 /**
- * GitHub Webhook のエントリポイント
+ * GitHub Webhook entry point
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {

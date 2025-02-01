@@ -7,7 +7,7 @@ const ORG_SETTINGS_REPO = process.env.ORG_SETTINGS_REPO!;
 const issueCache = new Map<string, number>();
 
 /**
- * GitHub API から Organization 名を取得
+ * Retrieve Organization name from GitHub API
  */
 const getOrgName = async (
   octokit: any,
@@ -23,7 +23,7 @@ const getOrgName = async (
 };
 
 /**
- * GitHub Webhook の `repository` イベントを処理
+ * Handle GitHub Webhook 'repository' event
  */
 export async function repositoryHandler(payload: any) {
   if (!payload.repository || !payload.action || !payload.installation) {
@@ -44,7 +44,7 @@ export async function repositoryHandler(payload: any) {
   }
 
   if (action === "created" && repository.private === false) {
-    // Public リポジトリが新規作成された時
+    // When a public repository is newly created
     await createIssue(
       octokit,
       repoOwner,
@@ -60,7 +60,7 @@ export async function repositoryHandler(payload: any) {
       issueTexts.create.body(repoName)
     );
   } else if (action === "publicized") {
-    // Private から Public に変更された時
+    // When changed from private to public
     await createIssue(
       octokit,
       repoOwner,
@@ -81,7 +81,7 @@ export async function repositoryHandler(payload: any) {
 }
 
 /**
- * Issue を作成する
+ * Create an Issue
  */
 const createIssue = async (
   octokit: any,
@@ -100,7 +100,7 @@ const createIssue = async (
 };
 
 /**
- * Issue を削除する
+ * Delete an Issue
  */
 const deleteIssue = async (octokit: any, org: string, repo: string) => {
   const issueNumber = issueCache.get(repo);

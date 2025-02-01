@@ -4,7 +4,7 @@ import { VercelRequest } from "@vercel/node";
 const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET!;
 
 /**
- * GitHub Webhook の署名を検証する
+ * Verify GitHub Webhook signature
  */
 export function verifySignature(req: VercelRequest): boolean {
   const signature = req.headers["x-hub-signature-256"] as string;

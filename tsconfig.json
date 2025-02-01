@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "node16", // CommonJS から Node.js の ESM に変更
-    "target": "ES2020", // ESM に適したターゲットに変更
+    "module": "node16", // Changed from CommonJS to Node.js ESM
+    "target": "ES2020", // Changed to a target suitable for ESM
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

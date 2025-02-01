@@ -26,16 +26,14 @@ Rate Limit:
 ## Installation in an Organization
 
 1. [Install this GitHub App in your Organization](https://github.com/apps/prevent-public-repos-2025)
-
 2. Create a repository named `org-settings` and add a `.github/prevent-public-repos.yml` file inside it. (Currently, this configuration file is not utilized.)
-
 3. To test its functionality, try creating a public repository. An issue should be created in both that repository and the `org-settings` repository.
 
 ## Contribution
 
 Contributions are welcome!
 
-- There are no strict rules for PRs or issues.
+- There are no strict rules for PRs or issues. Please follow general standards.
 - Contributions to the TODO section below would be greatly appreciated.
 - Currently, merging requires approval from the CODEOWNER (`masa0902dev`).
 
@@ -54,6 +52,6 @@ Contributions are welcome!
 
 - **issc29**: Author of [`Prevent Public Repos`](https://github.com/issc29/probot-prevent-public-repos)
 
-※ This GitHub App `prevent-public-repos-2025` is independent of `Prevent Public Repos` by issc29, and no code has been reused, so if this GitHub App stops working, please open an issue in this repository.
+※ This GitHub App `prevent-public-repos-2025` has no dependency on `Prevent Public Repos` by issc29, as no code has been reused. If this GitHub App stops working, please open an issue in this repository.
 
 - **tmknom**: Author of [`GitHubセキュリティ Organization運用のベストプラクティス`](https://zenn.dev/tmknom/books/github-organization-security)

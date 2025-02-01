@@ -26,16 +26,14 @@ rate-limit:
 ## Organization への導入
 
 1. [この Github Apps を Organization にインストール](https://github.com/apps/prevent-public-repos-2025)
-
 2. `org-settings`という名前のレポジトリを作成し、その中に`.github/prevent-public-repos.yml`ファイルを作成（現在はこの設定ファイルを読み取る機能はありません）。
-
 3. 動作確認のために、Public レポジトリを作成してみて下さい。そのレポジトリと`org-settings`レポジトリに issue が作成されるはずです！
 
 ## Contribution
 
 Contribution は大歓迎です！
 
-- PR や issue のルールは特にありません。
+- PR や issue のルールは特にありません。一般的なスタンダードに準じて下さい。
 - 下記の TODO セクション内容を contribute して下さるととても助かります。
 - 現在は、マージには CODEOWNER (masa0902dev) による approve を必須にしています。
 
@@ -54,6 +52,6 @@ Contribution は大歓迎です！
 
 - issc29: [`Prevent Public Repos`](https://github.com/issc29/probot-prevent-public-repos) 作者様
 
-※ この Github App `prevent-public-repos-2025`は issc29 氏の`Prevent Public Repos`との依存性はありません。コード流用もないため、もしこの Github App が動かなくなった場合は本レポジトリ への issue 立てをお願いします。
+※ この Github App `prevent-public-repos-2025`は issc29 氏の`Prevent Public Repos`からのコード流用がないため依存性はありません。もしこの Github App が動かなくなった場合は本レポジトリ への issue 立てをお願いします。
 
 - tmknom: [`GitHubセキュリティ Organization運用のベストプラクティス`](https://zenn.dev/tmknom/books/github-organization-security) 著者様

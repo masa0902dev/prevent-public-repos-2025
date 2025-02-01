@@ -15,6 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    console.info("Received Webhook Request:", JSON.stringify(req.body, null, 2));
     await repositoryHandler(req.body);
     return res.status(200).json({ success: true });
   } catch (error) {

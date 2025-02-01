@@ -1,17 +1,21 @@
+import { issueTexts } from "../constants.js";
 import { getOctokit } from "../github.js";
 import dotenv from "dotenv";
-
 dotenv.config();
 
-const ORG_SETTING_REPO = process.env.ORG_SETTING_REPO!;
+const ORG_SETTINGS_REPO = process.env.ORG_SETTINGS_REPO!;
 const issueCache = new Map<string, number>();
 
 /**
  * GitHub API から Organization 名を取得
  */
-const getOrgName = async (octokit: any, repoName: string): Promise<string> => {
+const getOrgName = async (
+  octokit: any,
+  repoOwner: string,
+  repoName: string
+): Promise<string> => {
   const response = await octokit.repos.get({
-    owner: "dummy", // ここは API 内で上書きされる
+    owner: repoOwner,
     repo: repoName,
   });
 
@@ -22,61 +26,57 @@ const getOrgName = async (octokit: any, repoName: string): Promise<string> => {
  * GitHub Webhook の `repository` イベントを処理
  */
 export async function repositoryHandler(payload: any) {
-  const { action, repository, installation } = payload;
-
-  if (!installation || !repository) {
-    throw new Error("Invalid payload");
+  if (!payload.repository || !payload.action || !payload.installation) {
+    console.info("Skipping Webhook: Invalid payload structure.");
+    return;
   }
+
+  const { action, repository, installation } = payload;
   const octokit = getOctokit(installation.id);
-
+  const repoOwner = repository.owner?.login;
   const repoName = repository.name;
-  const orgName = await getOrgName(octokit, repoName);
-  const isPublic = repository.private === false;
 
-  const texts = {
-    created: {
-      title: `New Public Repository: ${repoName}`,
-      body: `A new public repository ${repoName} was created.`,
-    },
-    publicized: {
-      title: `Repository Publicized: ${repoName}`,
-      body: `The repository ${repoName} was changed from private to public.`,
-    },
-  };
+  if (!repoOwner || !repoName) {
+    console.error(
+      `Invalid payload: repository.owner.login=${repoOwner}, repository.name=${repoName}`
+    );
+    return;
+  }
 
-  if (action === "created" && isPublic) {
+  if (action === "created" && repository.private === false) {
+    // Public リポジトリが新規作成された時
     await createIssue(
       octokit,
-      orgName,
+      repoOwner,
       repoName,
-      texts.created.title,
-      texts.created.body
+      issueTexts.create.title(repoName),
+      issueTexts.create.body(repoName)
     );
     await createIssue(
       octokit,
-      orgName,
-      ORG_SETTING_REPO,
-      texts.created.title,
-      texts.created.body
+      repoOwner,
+      ORG_SETTINGS_REPO,
+      issueTexts.create.title(repoName),
+      issueTexts.create.body(repoName)
     );
   } else if (action === "publicized") {
+    // Private から Public に変更された時
     await createIssue(
       octokit,
-      orgName,
+      repoOwner,
       repoName,
-      texts.publicized.title,
-      texts.publicized.body
+      issueTexts.publicize.title(repoName),
+      issueTexts.publicize.body(repoName)
     );
     await createIssue(
       octokit,
-      orgName,
-      ORG_SETTING_REPO,
-      texts.publicized.title,
-      texts.publicized.body
+      repoOwner,
+      ORG_SETTINGS_REPO,
+      issueTexts.create.title(repoName),
+      issueTexts.create.body(repoName)
     );
-  } else if (action === "privatized" || action === "deleted") {
-    await deleteIssue(octokit, orgName, repoName);
-    await deleteIssue(octokit, orgName, ORG_SETTING_REPO);
+  } else {
+    console.info(`Skipping event: ${action}`);
   }
 }
 

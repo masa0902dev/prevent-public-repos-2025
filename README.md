@@ -33,7 +33,7 @@ Rate Limit:
 
 Contributions are welcome!
 
-- There are no strict rules for PRs or issues.
+- There are no strict rules for PRs or issues. Please follow general standards.
 - Contributions to the TODO section below would be greatly appreciated.
 - Currently, merging requires approval from the CODEOWNER (`masa0902dev`).
 

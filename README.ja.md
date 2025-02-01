@@ -33,7 +33,7 @@ rate-limit:
 
 Contribution は大歓迎です！
 
-- PR や issue のルールは特にありません。
+- PR や issue のルールは特にありません。一般的なスタンダードに準じて下さい。
 - 下記の TODO セクション内容を contribute して下さるととても助かります。
 - 現在は、マージには CODEOWNER (masa0902dev) による approve を必須にしています。
 

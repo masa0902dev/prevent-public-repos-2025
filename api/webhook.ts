@@ -1,25 +1,23 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { verifySignature } from "../src/utils.js";
 import { repositoryHandler } from "../src/handlers/repository.js";
+import { rateLimit } from "../src/middlewares/rateLimit.js";
+import { validateRequest } from "../src/middlewares/validateRequest.js";
 
-/**
- * GitHub Webhook entry point
- */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
+  if (!validateRequest(req, res)) {
+    return;
   }
-
-  if (!verifySignature(req)) {
-    return res.status(401).json({ error: "Invalid signature" });
+  if (!rateLimit(req, res)) {
+    return;
   }
 
   try {
-    console.info("Received Webhook Request:", JSON.stringify(req.body, null, 2));
+    console.log("Received Webhook Request:", JSON.stringify(req.body, null, 2));
     await repositoryHandler(req.body);
     return res.status(200).json({ success: true });
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     console.error("Webhook Error:", error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: error.message });
   }
 }

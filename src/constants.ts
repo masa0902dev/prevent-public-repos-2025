@@ -1,3 +1,5 @@
+export const targetActions = ["created", "publicized"];
+
 export const issueTexts = {
   create: {
     title: (repoName: string) => `🚨CAUTION🚨 new PUBLIC repository ${repoName} created`,

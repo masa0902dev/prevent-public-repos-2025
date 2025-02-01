@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    console.log("Received Webhook Request:", JSON.stringify(req.body, null, 2));
+    // console.info("Received Webhook Request:", JSON.stringify(req.body, null, 2)); // for debugging
     await repositoryHandler(req.body);
     return res.status(200).json({ success: true });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

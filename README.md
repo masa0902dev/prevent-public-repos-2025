@@ -1,9 +1,6 @@
 # prevent-public-repos-2025
 
-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️  
-Applying for Github App.  
-I will update the README as soon as I hear from Github!  
-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️-⭐️
+🔥Now, You Can Use This Github App!🔥
 
 [English](README.md) | [日本語](README.ja.md)
 

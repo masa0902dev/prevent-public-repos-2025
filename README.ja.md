@@ -1,6 +1,6 @@
 # prevent-public-repos-2025
 
-🔥Github Appの申請が通ったので利用可能です!🔥
+🔥Github Appの申請に通ったため、利用可能です!🔥
 
 [English](README.md) | [日本語](README.ja.md)
 
